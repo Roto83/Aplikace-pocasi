@@ -1,5 +1,7 @@
 <script>
-
+  import Temperature from './Components/Temperature.svelte';
+  import SearchBar from "./Components/SearchBar.svelte"
+  import Statistics from './Components/Statistics.svelte';
 </script>
 
 <main>
@@ -7,7 +9,11 @@
 
   </section>
   <section id="centerSection">
-
+    <div>
+     <SearchBar />
+     <Temperature />
+     <Statistics />
+    </div>
   </section>
   <section id="rightSection">
 
@@ -21,9 +27,10 @@
     height: 100px;
   }
   #centerSection{
-    background-color: whitesmoke;
     width: 60%;
     height: 100px;
+    display: flex;
+    justify-content: center;
   }
   #rightSection{
     background-color:cornflowerblue;
