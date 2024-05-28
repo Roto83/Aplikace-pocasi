@@ -1,18 +1,15 @@
-function ForecastFetch(lat, lon) {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=134172c2ea1a234d8cdf9065571deedd&units=metric`)
-    .then(response => {
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
+async function ForecastFetch(lat, lon) {
+    try {
+        const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=134172c2ea1a234d8cdf9065571deedd&units=metric`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+        return null;
     }
-    return response.json();
-    })
-    .then(data => {
-    console.log(data);
-    })
-    .catch(error => {
-    console.error('Error:', error);
-    });
-
 }
   
 export default ForecastFetch

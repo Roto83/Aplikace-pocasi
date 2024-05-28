@@ -251,16 +251,21 @@ let acceptedCodes = [
     "ZW"
 ];
 
-function SearchLocation(input) {
+function SearchLocation(input) {  
     let cityName = "";
     let countryCode = "";
-    if (input.length === 2 && acceptedCodes.includes(input)) {
-        countryCode == input;
+    if (input.length == 2 && acceptedCodes.includes(input.toUpperCase())) {
+        countryCode = input;
     }
     else{
-        cityName == input;
+        cityName = input;
     }
-    return LocationFetch(cityName, countryCode);
+    
+    async function getLocationData() {
+        const cityData = await LocationFetch(cityName, countryCode);
+        return cityData;
+    }
+    return getLocationData();
 }
   
 export default SearchLocation
