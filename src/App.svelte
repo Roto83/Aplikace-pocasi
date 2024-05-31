@@ -2,11 +2,12 @@
   import Temperature from './Components/Temperature.svelte';
   import SearchBar from "./Components/SearchBar.svelte"
   import Statistics from './Components/Statistics.svelte';
+  import Dashboard from './Components/Dashboard.svelte';
 </script>
 
 <main>
   <section id="leftSection">
-
+    <Dashboard />
   </section>
   <section id="centerSection">
     <div>
@@ -22,15 +23,15 @@
 
 <style>
   #leftSection{
-    background-color: aqua;
     width: 15%;
     height: 100px;
   }
   #centerSection{
     width: 60%;
-    height: 100px;
+    height: fit-content;
     display: flex;
     justify-content: center;
+    border-left: 2px solid #E1E8EC;
   }
   #rightSection{
     background-color:cornflowerblue;
