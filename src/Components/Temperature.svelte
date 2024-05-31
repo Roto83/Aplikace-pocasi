@@ -9,7 +9,7 @@
 
 </script>
 
-<div class="bg-primary w-[745px] h-[344px] rounded-xl flex">
+<div class="bg-primary w-[100%] h-[344px] rounded-xl flex">
     <div class="w-1/2 h-full">
         <div class="p-7 justify-between flex h-1/4">
             <div class="flex">

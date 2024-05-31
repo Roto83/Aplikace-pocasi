@@ -3,6 +3,7 @@
   import SearchBar from "./Components/SearchBar.svelte"
   import Statistics from './Components/Statistics.svelte';
   import Dashboard from './Components/Dashboard.svelte';
+  import Timeline from './Components/Timeline.svelte';
   import ForecastFetch from './forecastFetch';
 
   let searchedLon = 14.4212535;
@@ -27,13 +28,13 @@
   </section>
   <section id="centerSection">
     <div>
-     <SearchBar on:sendData={handleData} />
-     <Temperature {weatherData}/>
-     <Statistics {weatherData} />
+      <SearchBar on:sendData={handleData} />
+      <Temperature {weatherData}/>
+      <Statistics {weatherData} />
     </div>
   </section>
   <section id="rightSection">
-
+    <Timeline />
   </section>
 </main>
 
@@ -50,7 +51,6 @@
     border-left: 2px solid #E1E8EC;
   }
   #rightSection{
-    background-color:cornflowerblue;
     width: 25%;
     height: 100px;
   }
