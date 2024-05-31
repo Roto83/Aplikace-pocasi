@@ -4,6 +4,9 @@
     import rainChance from "../assets/rain-chance.png";
     import pressure from "../assets/pressure.png";
     import uvIndex from "../assets/uv-index.png";
+
+    export let weatherData = null;
+
 </script>
 
 <div class="mb-10">
@@ -11,8 +14,8 @@
         <div class="w-[356px] h-[160px] bg-tertiary rounded-xl flex items-center">
             <div class="flex flex-col m-auto">
                 <p class="font-medium text-xl">Wind</p>
-                <p class="text-base font-normal text-text-normal my-3">Today wind speed</p>
-                <p class="font-medium text-xl">12km/h</p>
+                <p class="text-base font-normal text-text-normal">Today wind speed</p>
+                <p class="font-medium text-xl">{weatherData !== null ? weatherData.list[0].wind.speed + 'km/h': 'km/h'}</p>
             </div>
             <img src={compas} alt="Compas icon" class="h-[100px] w-[100px] m-auto"/>
         </div>

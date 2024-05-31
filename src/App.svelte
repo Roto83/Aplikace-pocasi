@@ -3,6 +3,22 @@
   import SearchBar from "./Components/SearchBar.svelte"
   import Statistics from './Components/Statistics.svelte';
   import Dashboard from './Components/Dashboard.svelte';
+  import ForecastFetch from './forecastFetch';
+
+  let searchedLon = 14.4212535;
+  let searchedLat = 50.0874654;
+  let weatherData;
+  async function accessData() {
+    weatherData = await ForecastFetch(searchedLat, searchedLon);
+    console.log(weatherData);
+  }
+  accessData();
+
+  function handleData(event) {
+    searchedLon = event.detail.lon;
+    searchedLat = event.detail.lat;
+    accessData();
+  }
 </script>
 
 <main>
@@ -11,9 +27,9 @@
   </section>
   <section id="centerSection">
     <div>
-     <SearchBar />
-     <Temperature />
-     <Statistics />
+     <SearchBar on:sendData={handleData} />
+     <Temperature {weatherData}/>
+     <Statistics {weatherData} />
     </div>
   </section>
   <section id="rightSection">
