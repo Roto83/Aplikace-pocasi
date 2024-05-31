@@ -11,7 +11,7 @@
 
 <div class="mb-10">
     <div class="flex justify-between mt-8">
-        <div class="w-[50%] h-[160px] bg-tertiary rounded-xl flex items-center">
+        <div class="w-[356px] h-[160px] bg-tertiary rounded-xl flex items-center">
             <div class="flex flex-col m-auto">
                 <p class="font-medium text-xl">Wind</p>
                 <p class="text-base font-normal text-text-normal my-3">Today wind speed</p>
@@ -19,7 +19,7 @@
             </div>
             <img src={compas} alt="Compas icon" class="h-[100px] w-[100px] m-auto"/>
         </div>
-        <div class="w-[50%] h-[160px] bg-tertiary rounded-xl flex items-center">
+        <div class="w-[356px] h-[160px] bg-tertiary rounded-xl flex items-center">
             <div class="flex flex-col m-auto">
                 <p class="font-medium text-xl">Rain chance</p>
                 <p class="text-base font-normal text-text-normal my-3">Today rain chance</p>
@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="flex justify-between mt-8">
-        <div class="w-[456px] h-[160px] bg-tertiary rounded-xl flex items-center">
+        <div class="w-[356px] h-[160px] bg-tertiary rounded-xl flex items-center">
             <div class="flex flex-col m-auto">
                 <p class="font-medium text-xl">Pressure</p>
                 <p class="text-base font-normal text-text-normal my-3">Today pressure</p>
@@ -37,7 +37,7 @@
             </div>
             <img src={pressure} alt="Compas icon" class="h-[80px] w-[100px] m-auto"/>
         </div>
-        <div class="w-[456px] h-[160px] bg-tertiary rounded-xl flex items-center">
+        <div class="w-[356px] h-[160px] bg-tertiary rounded-xl flex items-center">
             <div class="flex flex-col m-auto">
                 <p class="font-medium text-xl">UV Index</p>
                 <p class="text-base font-normal text-text-normal my-3">Today UV Index</p>
