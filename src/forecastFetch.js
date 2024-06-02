@@ -1,6 +1,6 @@
 async function ForecastFetch(lat, lon) {
     try {
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=134172c2ea1a234d8cdf9065571deedd&units=metric`);
+        const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.API_KEY}&units=metric`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
