@@ -49,6 +49,7 @@
     display: flex;
     justify-content: center;
     border-left: 2px solid #E1E8EC;
+    border-right: 2px solid #E1E8EC;
   }
   #rightSection{
     width: 25%;
