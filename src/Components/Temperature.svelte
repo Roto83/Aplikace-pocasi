@@ -4,13 +4,13 @@
     import windy from "../assets/windy.svg";
     import drop from "../assets/drop.svg";
     import breeze from "../assets/breeze.svg";
+    import graph from "../assets/graph.png"
 
     export let weatherData = null;
-
 </script>
 
-<div class="bg-primary w-[745px] h-[344px] rounded-xl flex">
-    <div class="w-1/2 h-full">
+<div class="bg-primary w-full mt-20 md:mt-0 md:w-[745px] h-[46rem] md:h-[344px] rounded-xl flex flex-col md:flex-row">  <!-- Update layout for mobile -->
+    <div class="w-full md:w-1/2 h-full">
         <div class="p-7 justify-between flex h-1/4">
             <div class="flex">
                 <img src={location} alt="Location icon" class="w-6"/>
@@ -40,13 +40,13 @@
             </div>
         </div>
     </div>
-    <div class="w-1/2 h-full flex items-center justify-center">
+    <div class="w-full md:w-1/2 h-full flex items-center justify-center">
         <div class="backdrop-blur-md bg-white/30 h-5/6 w-5/6 rounded-xl">
             <div class="h-1/4 flex items-center text-secondary font-semibold text-xl ml-5">
                 <p>Temperature</p>
             </div>
             <div class="h-1/2">
-
+                <img src={graph} alt="Graph" class=" w-80">
             </div>
             <div class="h-1/4 flex justify-between text-secondary items-center px-7">
                 <div class="flex flex-col items-center">

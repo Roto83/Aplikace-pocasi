@@ -53,16 +53,18 @@
             items.pop();
         }
     }
+
     function deactivateSearch() {
         searchActive = false;
     }
+
     function activateSearch() {
         searchActive = true;
     }
 
 </script>
 
-<div class="flex flex-col relative">
+<div class="flex flex-col relative hidden md:flex">  <!-- Hide on mobile with hidden md:flex -->
     <div class="flex h-32 w-full justify-between">
         <div class="flex">
             <img src={SearchIcon} alt="Search icon" class="w-5 text-gray-400 ml-2"/>
@@ -76,11 +78,6 @@
             {#each items as item, index}
                 <li class="cursor-pointer p-5 hover:bg-gray-200 w-full bg-white" on:click={() => sendForSearch(index)}>{cityData !== null ? cityData[index].name + ", " + cityData[index].country : '...'}</li>
             {/each}
-            <!--<li bind:this={li0} on:click={sendForSearch} class="cursor-pointer p-5 hover:bg-gray-200 w-full bg-white">{cityData !== null ? cityData[0].name + ", " + cityData[0].country : '...'}</li>
-            <li bind:this={li1} class="cursor-pointer p-5 hover:bg-gray-200 w-full bg-white">{cityData !== null ? cityData[1].name + ", " + cityData[1].country : '...'}</li>
-            <li bind:this={li2} class="cursor-pointer p-5 hover:bg-gray-200 w-full bg-white">{cityData !== null ? cityData[2].name + ", " + cityData[2].country : '...'}</li>
-            <li bind:this={li3} class="cursor-pointer p-5 hover:bg-gray-200 w-full bg-white">{cityData !== null ? cityData[3].name + ", " + cityData[3].country : '...'}</li>
-            <li bind:this={li4} class="cursor-pointer p-5 hover:bg-gray-200 w-full bg-white">{cityData !== null ? cityData[4].name + ", " + cityData[4].country : '...'}</li>-->
         </ul>
     </div>
 </div>
