@@ -18,7 +18,7 @@
   ];
 </script>
 
-<div class="flex flex-col items-center">
+<div class="timeline-container md:w-1/4 w-full md:order-last md: ml-8">
     <div class="flex items-center mt-12">
         <img src={arrowLeft} alt="Arrow left"/>
         <p class="mx-24 text-xl">This Week</p>
@@ -60,3 +60,23 @@
         {/each}
       </div>
 </div>
+
+<style>
+    /* Adjust styles for the timeline container */
+    .timeline-container {
+        /* On mobile, make it full width */
+        width: 100%;
+    }
+
+    /* Add styles to push Timeline below other sections on mobile */
+    @media (max-width: 767px) {
+        .timeline-container {
+            width: 90%;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 95rem
+        }
+    }
+</style>
