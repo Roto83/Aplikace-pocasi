@@ -43,7 +43,7 @@
   </section>
 
   <section id="rightSection" class="md:w-1/4 w-full">
-    <Timeline />
+    <Timeline {weatherData}/>
   </section>
 </main>
 

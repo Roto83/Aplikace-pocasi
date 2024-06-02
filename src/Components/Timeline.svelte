@@ -7,14 +7,35 @@
 
     import DayForecast from './DayForecast.svelte';
 
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    const today = new Date();
+    const currentDayIndex = today.getDay();
+
+    const nextDays = [];
+    const nextDates = [];
+
+    for (let i = 0; i < 6; i++) {
+        const nextDate = new Date();
+        nextDate.setDate(today.getDate() + i);
+        
+        const nextDayIndex = (currentDayIndex + i) % 7;
+        nextDays.push(daysOfWeek[nextDayIndex]);
+        
+        const day = nextDate.getDate();
+        const month = nextDate.getMonth() + 1;
+        nextDates.push(`${day} ${months[month]}`);
+    }
+
+    export let weatherData = null;
+
     const forecastData = [
-    { dayName: 'Tomorrow', date: '12 Apr', temperature: 15, icon: yellowSun },
-    { dayName: 'Monday', date: '13 Apr', temperature: 16, icon: yellowSun },
-    { dayName: 'Tuesday', date: '14 Apr', temperature: 18, icon: yellowSun },
-    { dayName: 'Wednesday', date: '15 Apr', temperature: 20, icon: blueSun },
-    { dayName: 'Thursday', date: '16 Apr', temperature: 21, icon: yellowSun },
-    { dayName: 'Friday', date: '17 Apr', temperature: 19, icon: blueSun },
-    { dayName: 'Saturday', date: '18 Apr', temperature: 22, icon: yellowSun },
+    { dayName: 'Today', date: nextDates[0], temperature: 15, icon: yellowSun },
+    { dayName: 'Tommorow', date: nextDates[1], temperature: 16, icon: yellowSun },
+    { dayName: nextDays[2], date: nextDates[2], temperature: 18, icon: yellowSun },
+    { dayName: nextDays[3], date: nextDates[3], temperature: 20, icon: blueSun },
+    { dayName: nextDays[4], date: nextDates[4], temperature: 21, icon: yellowSun },
+    { dayName: nextDays[5], date: nextDates[5], temperature: 19, icon: blueSun },
   ];
 </script>
 
@@ -30,31 +51,31 @@
             <div class="flex flex-col bg-[#C4E2FF] w-20 h-28 rounded-xl items-center justify-center">
                 <p class="text-text-dashboard text-xs">Now</p>
                 <img src={whiteSun} alt="White sun" class="w-8 my-3"/>
-                <p class="text-text-dashboard font-semibold">24°</p>
+                <p class="text-text-dashboard font-semibold">{weatherData !== null ? weatherData.list[0].main.temp + "" : ''}°</p>
             </div>
             <div class="flex flex-col w-16 h-28 rounded-xl items-center justify-center">
-                <p class="text-text-dashboard text-xs">01 PM</p>
+                <p class="text-text-dashboard text-xs">+ 3h</p>
                 <img src={yellowSun} alt="Yellow sun" class="w-8 my-3"/>
-                <p class="text-text-dashboard font-semibold">26°</p>
+                <p class="text-text-dashboard font-semibold">{weatherData !== null ? weatherData.list[1].main.temp + "" : ''}°</p>
             </div>
             <div class="flex flex-col w-16 h-28 rounded-xl items-center justify-center">
-                <p class="text-text-dashboard text-xs">02 PM</p>
+                <p class="text-text-dashboard text-xs">+ 6h</p>
                 <img src={yellowSun} alt="Yellow sun" class="w-8 my-3"/>
-                <p class="text-text-dashboard font-semibold">25°</p>
+                <p class="text-text-dashboard font-semibold">{weatherData !== null ? weatherData.list[2].main.temp + "" : ''}°</p>
             </div>
             <div class="flex flex-col w-16 h-28 rounded-xl items-center justify-center">
-                <p class="text-text-dashboard text-xs">03 PM</p>
+                <p class="text-text-dashboard text-xs">+ 9h</p>
                 <img src={yellowSun} alt="Yellow sun" class="w-8 my-3"/>
-                <p class="text-text-dashboard font-semibold">25°</p>
+                <p class="text-text-dashboard font-semibold">{weatherData !== null ? weatherData.list[3].main.temp + "" : ''}°</p>
             </div>
         </div>
     </div>
     <div class="timeline flex overflow-x-auto p-5 flex-col">
-        {#each forecastData as forecast}
+        {#each forecastData as forecast, index}
           <DayForecast
             dayName={forecast.dayName}
             date={forecast.date}
-            temperature={forecast.temperature}
+            temperature={weatherData !== null ? weatherData.list[0 + index * 7].main.temp + "" : ''}
             icon={forecast.icon}
           />
         {/each}

@@ -14,15 +14,15 @@
             <div class="flex flex-col m-auto">
                 <p class="font-medium text-xl">Wind</p>
                 <p class="text-base font-normal text-text-normal my-3">Today wind speed</p>
-                <p class="font-medium text-xl">{weatherData !== null ? weatherData.list[0].wind.speed + 'km/h': 'km/h'}</p>
+                <p class="font-medium text-xl">{weatherData !== null ? weatherData.list[0].wind.speed + '': ''} km/h</p>
             </div>
             <img src={compas} alt="Compas icon" class="h-[100px] w-[100px] m-auto"/>
         </div>
         <div class="w-full md:w-[356px] h-[160px] bg-tertiary rounded-xl flex items-center mb-4 md:mb-0">
             <div class="flex flex-col m-auto">
-                <p class="font-medium text-xl">Rain chance</p>
-                <p class="text-base font-normal text-text-normal my-3">Today rain chance</p>
-                <p class="font-medium text-xl">24%</p>
+                <p class="font-medium text-xl">Cloudiness</p>
+                <p class="text-base font-normal text-text-normal my-3">Today cloudiness</p>
+                <p class="font-medium text-xl">{weatherData !== null ? weatherData.list[0].clouds.all + "" : ''}%</p>
             </div>
             <img src={rainChance} alt="Rain chance icon" class="h-[100px] w-[100px] m-auto"/>
         </div>
@@ -38,9 +38,9 @@
         </div>
         <div class="w-full md:w-[356px] h-[160px] bg-tertiary rounded-xl flex items-center mb-4 md:mb-0">
             <div class="flex flex-col m-auto">
-                <p class="font-medium text-xl">UV Index</p>
-                <p class="text-base font-normal text-text-normal my-3">Today UV Index</p>
-                <p class="font-medium text-xl">2</p>
+                <p class="font-medium text-xl">Apparent temp</p>
+                <p class="text-base font-normal text-text-normal my-3">Temperature feels like</p>
+                <p class="font-medium text-xl">{weatherData !== null ? weatherData.list[0].main.feels_like + "" : ''}°</p>
             </div>
             <img src={uvIndex} alt="Compas icon" class="h-[80px] w-[100px] m-auto"/>
         </div>
