@@ -18,7 +18,6 @@
   let weatherData;
   async function accessData() {
     weatherData = await ForecastFetch(searchedLat, searchedLon);
-    console.log(weatherData);
   }
   accessData();
 
